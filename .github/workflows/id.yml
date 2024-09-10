@@ -1,0 +1,10 @@
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: id
+      - run: cat /etc/passwd
