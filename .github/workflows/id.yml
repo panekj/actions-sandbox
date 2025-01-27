@@ -7,4 +7,9 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - run: id
-      - run: cat /etc/passwd
+      - run: cat /proc/sys/kernel/unprivileged_userns_clone
+      - run: sudo sysctl -w kernel.unprivileged_userns_clone=1
+      - run: cat /proc/sys/kernel/unprivileged_userns_clone
+      - run: cat /proc/sys/user/max_user_namespaces
+      - run: sudo sysctl -w user.max_user_namespaces=1
+      - run: cat /proc/sys/user/max_user_namespaces
